@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "angular-app": "apps/angular-app",
+    "angular-app-e2e": "apps/angular-app-e2e",
+    "api-rest": "apps/api-rest",
+    "domain": "libs/domain"
+  }
+}

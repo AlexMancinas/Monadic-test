@@ -1,8 +1,6 @@
-# Monadic-test\
 
-Link to access 
 
-https://nestjs-361723.web.app/list
+# Onboarding
 
 This project was generated using [Nx](https://nx.dev).
 

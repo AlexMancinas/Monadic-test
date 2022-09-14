@@ -1,0 +1,32 @@
+<div class="">
+    <div class="">
+        <h4 class="title">ADD TODO</h4>
+    </div>
+
+    <div class="">
+        <form [formGroup]="TodoForm" (submit)="createNewTodo($any(TodoForm.value))">
+
+            <div class="form-group" class="input">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Add Todo . . .</mat-label>
+                    <input matInput placeholder="Add Todo . . ." type="text" name="todo" class="form-control"
+                        placeholder="Add Todo . . ." formControlName="title" required style="color: white;">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Add Description . . .</mat-label>
+                    <input matInput type="text" name="description" class="form-control"
+                        placeholder="Add description . . ." formControlName="description" required
+                        style="color: white;">
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="primary" [disabled]="!TodoForm.valid">
+                <mat-icon> add </mat-icon> ADD
+            </button>
+        </form>
+
+    </div>
+</div>

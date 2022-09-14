@@ -1,0 +1,52 @@
+<section class="m-y-2">
+    <mat-form-field appearance="fill">
+        <mat-label>
+            Select filter
+        </mat-label>
+        <mat-select [formControl]="filter">
+            <mat-option [value]="option.filter" *ngFor="let option of AvailableFilters">
+                {{ option.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>
+<mat-selection-list class="list">
+    <mat-list-item class="list--item m-b-1" *ngFor="let todo of (todoList$ | async)! | filterList:filter.value">
+        <section>
+            <div class="flex__space-between">
+                <h2>
+                    {{todo.title}}
+                </h2>
+                <h3>
+                    <p>{{todo.createTime | date:'short'}}</p>
+                </h3>
+            </div>
+            <hr>
+            <div class="flex__space-between">
+                <p>
+                    {{ todo.description }}
+                </p>
+                <p>
+                    {{todo.done | status}}
+                </p>
+            </div>
+            <div>
+
+            </div>
+            <div class="flex__flex-end">
+                <button mat-flat-button color="primary" (click)="deleteTodo(todo._id!)" style="margin: 0.3rem;">
+                    <mat-icon>delete</mat-icon>Delete
+                </button>
+
+                <button mat-flat-button color="warn" style="margin: 0.3rem;" (click)="toggleChange(todo)">
+                    <mat-icon>launch</mat-icon>
+                    {{ todo.done ? 'Mark as done' : 'Mark as undone' }}
+                </button>
+                <a mat-flat-button color="secondary" style="margin: 0.3rem;" [routerLink]="['/update',todo._id]">
+                    <mat-icon>launch</mat-icon>
+                    Update todo
+                </a>
+            </div>
+        </section>
+    </mat-list-item>
+</mat-selection-list>

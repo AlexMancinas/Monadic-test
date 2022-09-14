@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "onboarding",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "ZWI4Y2UxMjYtZDdmOS00MDEwLTk1ZTEtNTIwZDRkNDViMTFkfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  },
+  "defaultProject": "api-rest",
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  }
+}

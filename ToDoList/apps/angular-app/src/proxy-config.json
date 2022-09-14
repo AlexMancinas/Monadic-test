@@ -1,0 +1,9 @@
+{
+    "/nestjs-361723/*": {
+      "target": "http://localhost:5001",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
+  

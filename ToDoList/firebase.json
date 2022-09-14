@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "source": "dist/apps/api-rest",
+    "runtime": "nodejs16",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ],
+    "predeploy": "yarn --prefix \"$RESOURCE_DIR\" nx run api-rest:build"
+  },
+  "hosting": {
+    "public": "dist/apps/angular-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
